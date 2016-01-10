@@ -57,8 +57,7 @@ App.Pager = function(options) {
 
 		// Set current / next page
 		var currentPage = this.pages.filter('[data-ref="' + currentPageRef + '"]'),
-			nextPage = this.pages.filter('[data-ref="' + ref + '"]')
-			direction;
+			nextPage = this.pages.filter('[data-ref="' + ref + '"]');
 		
 		if(direction === 'prev') {
 			this.animatePrev(currentPage, nextPage);	

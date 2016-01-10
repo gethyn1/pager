@@ -1,0 +1,38 @@
+/*
+	
+	Pager
+
+*/
+/*---- Core styles ----*/
+.pg-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden; }
+
+.pg-page {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 100vh;
+  overflow: hidden;
+  /* Vertical center */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.pg-is-active {
+  position: relative;
+  z-index: 1;
+  height: auto;
+  min-height: 100vh; }

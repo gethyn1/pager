@@ -1,0 +1,55 @@
+/*
+	
+	Pager
+
+*/
+
+/*---- Core styles ----*/
+.pg-viewport {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.pg-page {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	height: 100vh;
+	overflow: hidden;
+
+	/* Vertical center */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+[class*="pg-is-"] {
+	//z-index: 1;
+	//transition: all .5s ease;
+}
+
+.pg-is-leaving-stage-left {
+	//transform: translateX(-50%);
+}
+
+.pg-is-leaving-stage-right {
+	//transform: translateX(50%);
+}
+
+.pg-is-entering-stage-left {
+	//transform: translateX(50%);
+}
+
+.pg-is-entering-stage-right {
+	//transform: translateX(-50%);
+}
+
+.pg-is-active {
+	position: relative;
+	z-index: 1;
+	height: auto;
+	min-height: 100vh;
+	//transition: all .5s ease;
+}

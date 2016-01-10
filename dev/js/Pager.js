@@ -1,6 +1,8 @@
 "use strict";
 var App = App || {};
 
+// NOTE: this is a very rough implementation that needs a lot of tidying up
+
 App.Pager = function(options) {
 
 	this.viewport = $(options.viewport);
@@ -35,12 +37,12 @@ App.Pager = function(options) {
 
 	this.slideToPrev = function() {
 		// console.log('Prev');
-		this.slideToPage(currentPageRef - 1, 'right');
+		this.slideToPage(currentPageRef - 1, 'prev');
 	};
 
 	this.slideToNext = function() {
 		// console.log('Next');
-		this.slideToPage(currentPageRef + 1, 'left');
+		this.slideToPage(currentPageRef + 1, 'next');
 	};
 
 	this.slideToPage = function(ref, direction) {
@@ -58,7 +60,18 @@ App.Pager = function(options) {
 			nextPage = this.pages.filter('[data-ref="' + ref + '"]')
 			direction;
 		
-		// Update classes
+		if(direction === 'prev') {
+			this.animatePrev(currentPage, nextPage);	
+		} else {
+			this.animateNext(currentPage, nextPage);
+		}
+		
+
+		// Update current page ref
+		currentPageRef = ref;
+	};
+
+	this.animateNext = function(currentPage, nextPage) {
 		currentPage.css({
 			transform: 'translateX(-50%)',
 			opacity: 0,
@@ -85,8 +98,34 @@ App.Pager = function(options) {
 				});
 			}, 100);
 		}, 500);
+	};
 
-		// Update current page ref
-		currentPageRef = ref;
+	this.animatePrev = function(currentPage, nextPage) {
+		currentPage.css({
+			transform: 'translateX(50%)',
+			opacity: 0,
+			transition: 'all .5s ease'
+		});
+
+		setTimeout(function() {
+			currentPage.css({
+				transform: 'translateX(0)',
+				transition: 'none'
+			}).removeClass('pg-is-active');
+
+			nextPage.css({
+				opacity: '0',
+				transform: 'translateX(-50%)'
+			})
+			.addClass('pg-is-active');
+			
+			setTimeout(function() {
+				nextPage.css({
+					transform: 'translateX(0)',
+					transition: 'all .5s ease',
+					opacity: '1'
+				});
+			}, 100);
+		}, 500);
 	};
 };

@@ -25,31 +25,9 @@
 	justify-content: center;
 }
 
-[class*="pg-is-"] {
-	//z-index: 1;
-	//transition: all .5s ease;
-}
-
-.pg-is-leaving-stage-left {
-	//transform: translateX(-50%);
-}
-
-.pg-is-leaving-stage-right {
-	//transform: translateX(50%);
-}
-
-.pg-is-entering-stage-left {
-	//transform: translateX(50%);
-}
-
-.pg-is-entering-stage-right {
-	//transform: translateX(-50%);
-}
-
 .pg-is-active {
 	position: relative;
 	z-index: 1;
 	height: auto;
 	min-height: 100vh;
-	//transition: all .5s ease;
 }
